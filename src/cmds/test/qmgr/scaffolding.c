@@ -6,6 +6,7 @@
 
 int pbs_errno = 0;
 
+
 char *pbs_geterrmsg(int connect)
   { 
   fprintf(stderr, "The call to pbs_geterrmsg needs to be mocked!!\n");
@@ -30,11 +31,17 @@ int pbs_disconnect(int connect)
   exit(1);
   }
 
+#if defined(__cplusplus)
+extern "C"
+  {
+#endif
 int cnt2server(const char *SpecServer)
   { 
   fprintf(stderr, "The call to cnt2server needs to be mocked!!\n");
   exit(1);
   }
+#if defined(__cplusplus)
+  } /* extern "C" */
 
 int pbs_query_max_connections(void)
   { 
@@ -48,7 +55,7 @@ struct batch_status *pbs_statnode(int c, char *id, struct attrl *attrib, char *e
   exit(1);
   }
 
-struct batch_status *pbs_statnode_err(int c, char *id, struct attrl *attrib, char *extend, int *local_errno)
+struct batch_status *pbs_statnode_err(int c, char *id, attrl *attrib, char *extend, int *local_errno)
   { 
   fprintf(stderr, "The call to pbs_statnode_err needs to be mocked!!\n");
   exit(1);
@@ -90,5 +97,9 @@ struct batch_status *pbs_statque_err(int c, char *id, struct attrl *attrib, char
   exit(1);
   }
 
-void initialize_network_info() {}
+void initialize_network_info() 
+  {
+  }
 
+
+#endif
