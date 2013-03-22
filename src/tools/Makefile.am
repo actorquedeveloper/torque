@@ -10,6 +10,8 @@ SUBDIRS = . $(XPBSMON)
 
 DIST_SUBDIRS = . xpbsmon
 
+CHECK_DIR = test
+
 EXTRA_DIST = tracejob.h init.d/pbs
 
 PBS_LIBS = ../lib/Libpbs/libtorque.la
